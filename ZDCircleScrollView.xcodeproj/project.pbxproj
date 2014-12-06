@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5309F9B71A3387A600A1DF86 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5309F9B11A3387A600A1DF86 /* 1.jpg */; };
+		5309F9B81A3387A600A1DF86 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5309F9B21A3387A600A1DF86 /* 2.jpg */; };
+		5309F9B91A3387A600A1DF86 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5309F9B31A3387A600A1DF86 /* 3.jpg */; };
+		5309F9BA1A3387A600A1DF86 /* 4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5309F9B41A3387A600A1DF86 /* 4.jpg */; };
+		5309F9BB1A3387A600A1DF86 /* 5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5309F9B51A3387A600A1DF86 /* 5.jpg */; };
+		5309F9BC1A3387A600A1DF86 /* 6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5309F9B61A3387A600A1DF86 /* 6.jpg */; };
 		53147BE91A32FA2300F513B5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 53147BE81A32FA2300F513B5 /* main.m */; };
 		53147BEC1A32FA2300F513B5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53147BEB1A32FA2300F513B5 /* AppDelegate.m */; };
 		53147BEF1A32FA2300F513B5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 53147BEE1A32FA2300F513B5 /* ViewController.m */; };
@@ -14,6 +20,7 @@
 		53147BF41A32FA2300F513B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53147BF31A32FA2300F513B5 /* Images.xcassets */; };
 		53147BF71A32FA2300F513B5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53147BF51A32FA2300F513B5 /* LaunchScreen.xib */; };
 		53147C031A32FA2300F513B5 /* ZDCircleScrollViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53147C021A32FA2300F513B5 /* ZDCircleScrollViewTests.m */; };
+		53147C0E1A32FA6000F513B5 /* CircleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53147C0D1A32FA6000F513B5 /* CircleScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +34,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5309F9B11A3387A600A1DF86 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
+		5309F9B21A3387A600A1DF86 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
+		5309F9B31A3387A600A1DF86 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
+		5309F9B41A3387A600A1DF86 /* 4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.jpg; sourceTree = "<group>"; };
+		5309F9B51A3387A600A1DF86 /* 5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.jpg; sourceTree = "<group>"; };
+		5309F9B61A3387A600A1DF86 /* 6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.jpg; sourceTree = "<group>"; };
 		53147BE31A32FA2300F513B5 /* ZDCircleScrollView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZDCircleScrollView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53147BE71A32FA2300F513B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53147BE81A32FA2300F513B5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -40,6 +53,8 @@
 		53147BFC1A32FA2300F513B5 /* ZDCircleScrollViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZDCircleScrollViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53147C011A32FA2300F513B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53147C021A32FA2300F513B5 /* ZDCircleScrollViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZDCircleScrollViewTests.m; sourceTree = "<group>"; };
+		53147C0C1A32FA6000F513B5 /* CircleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleScrollView.h; sourceTree = "<group>"; };
+		53147C0D1A32FA6000F513B5 /* CircleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +101,14 @@
 				53147BED1A32FA2300F513B5 /* ViewController.h */,
 				53147BEE1A32FA2300F513B5 /* ViewController.m */,
 				53147BF01A32FA2300F513B5 /* Main.storyboard */,
+				53147C0C1A32FA6000F513B5 /* CircleScrollView.h */,
+				53147C0D1A32FA6000F513B5 /* CircleScrollView.m */,
+				5309F9B11A3387A600A1DF86 /* 1.jpg */,
+				5309F9B21A3387A600A1DF86 /* 2.jpg */,
+				5309F9B31A3387A600A1DF86 /* 3.jpg */,
+				5309F9B41A3387A600A1DF86 /* 4.jpg */,
+				5309F9B51A3387A600A1DF86 /* 5.jpg */,
+				5309F9B61A3387A600A1DF86 /* 6.jpg */,
 				53147BF31A32FA2300F513B5 /* Images.xcassets */,
 				53147BF51A32FA2300F513B5 /* LaunchScreen.xib */,
 				53147BE61A32FA2300F513B5 /* Supporting Files */,
@@ -199,7 +222,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5309F9BC1A3387A600A1DF86 /* 6.jpg in Resources */,
 				53147BF21A32FA2300F513B5 /* Main.storyboard in Resources */,
+				5309F9BB1A3387A600A1DF86 /* 5.jpg in Resources */,
+				5309F9BA1A3387A600A1DF86 /* 4.jpg in Resources */,
+				5309F9B71A3387A600A1DF86 /* 1.jpg in Resources */,
+				5309F9B81A3387A600A1DF86 /* 2.jpg in Resources */,
+				5309F9B91A3387A600A1DF86 /* 3.jpg in Resources */,
 				53147BF71A32FA2300F513B5 /* LaunchScreen.xib in Resources */,
 				53147BF41A32FA2300F513B5 /* Images.xcassets in Resources */,
 			);
@@ -220,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53147BEF1A32FA2300F513B5 /* ViewController.m in Sources */,
+				53147C0E1A32FA6000F513B5 /* CircleScrollView.m in Sources */,
 				53147BEC1A32FA2300F513B5 /* AppDelegate.m in Sources */,
 				53147BE91A32FA2300F513B5 /* main.m in Sources */,
 			);
@@ -412,6 +442,7 @@
 				53147C081A32FA2300F513B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		53147C091A32FA2300F513B5 /* Build configuration list for PBXNativeTarget "ZDCircleScrollViewTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +451,7 @@
 				53147C0B1A32FA2300F513B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
