@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CircleScrollView : UIScrollView<UIScrollViewDelegate>
+@interface CircleScrollView : UIView<UIScrollViewDelegate>
 @property (nonatomic, copy) NSArray *images;
 @property (nonatomic) BOOL isTimer;
 @property (nonatomic) BOOL isShowPageControl;

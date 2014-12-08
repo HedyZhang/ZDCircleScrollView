@@ -23,6 +23,7 @@
     }
     CircleScrollView *scrollView = [[CircleScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     scrollView.images = imagesArray;
+    scrollView.isShowPageControl = YES;
     [self.view addSubview:scrollView];
     
     // Do any additional setup after loading the view, typically from a nib.
