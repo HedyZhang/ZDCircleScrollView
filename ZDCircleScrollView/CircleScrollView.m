@@ -8,8 +8,14 @@
 
 #import "CircleScrollView.h"
 
-@interface CircleScrollView ()
+@interface CircleScrollView ()<UIGestureRecognizerDelegate>
+{
+     NSTimer * scrollTimer;
+    int scrollTopicFlag;
+}
 @property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIPageControl *pageControl;
+
 @end
 
 @implementation CircleScrollView
@@ -21,8 +27,25 @@
         self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         _scrollView.delegate = self;
         _scrollView.pagingEnabled = YES;
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.showsVerticalScrollIndicator = NO;
         [self addSubview:_scrollView];
-   
+        
+        self.pageControl = [[UIPageControl alloc]initWithFrame:CGRectMake(0, 0, _scrollView.frame.size.width, 18)]; // 初始化mypagecontrol
+        _pageControl.center = CGPointMake(_scrollView.frame.size.width / 2.f, _scrollView.frame.size.height * 0.95);
+        [_pageControl setCurrentPageIndicatorTintColor:[UIColor redColor]];
+        [_pageControl setPageIndicatorTintColor:[UIColor blackColor]];
+         _pageControl.currentPage = 0;
+        [_pageControl addTarget:self action:@selector(turnPage:) forControlEvents:UIControlEventValueChanged]; // 触摸mypagecontrol触发change这个方法事件
+        [self addSubview:_pageControl];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pauseTimer) name:UIApplicationDidEnterBackgroundNotification object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startTimer) name:UIApplicationWillEnterForegroundNotification object:nil];
+        
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectFocusImage:)];
+        [_scrollView addGestureRecognizer:tapGesture];
+
     }
     return self;
 }
@@ -30,7 +53,7 @@
 - (void)setImages:(NSArray *)images
 {
     _images = images;
-    
+    _pageControl.numberOfPages = _images.count;
     [self initializeScrollViewImage];
 }
 - (void)initializeScrollViewImage
@@ -54,22 +77,65 @@
     UIImageView *imageViewLast = [[UIImageView alloc] initWithFrame:CGRectMake(_images.count * scrollWidth + scrollWidth, 0, scrollWidth, scrollHeight)];
     imageViewLast.image = [_images objectAtIndex:0];
     [_scrollView addSubview:imageViewLast];
+    
+    [_scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width, 0) animated:YES];
+    //   6-1-2-3-4-5-6-1
+    
+    scrollTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(changeFocusImage) userInfo:nil repeats:YES];
+
 }
-- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView;
 {
     CGFloat scrollWidth = _scrollView.frame.size.width;
-    CGFloat scrollHeight = _scrollView.frame.size.height;
-
-    int currentPage = (int)_scrollView.contentOffset.x / scrollWidth;
-    if (currentPage == 0)
+    int page  = (scrollView.contentOffset.x - scrollView.frame.size.width / 2) / scrollView.frame.size.width;
+    _pageControl.currentPage = page;
+    if (_scrollView.contentOffset.x <= 0)
     {
-        //当scrollView的可见图片是第一个时 设置可见rect在倒数第二个
-        [_scrollView scrollRectToVisible:CGRectMake(scrollWidth * _images.count , 0, scrollWidth, scrollHeight) animated:NO];
+        //当scrollView的图片在第一个的时候
+        [_scrollView setContentOffset:CGPointMake(scrollWidth * _images.count, 0) animated:NO];
     }
-    else if(currentPage == _images.count + 1)
+    else if(scrollView.contentOffset.x >= scrollWidth*(_images.count + 1))
     {
         //当scrollView的可见图片是最后一个时 设置可见rect在第二个
-        [_scrollView scrollRectToVisible:CGRectMake(scrollWidth, 0, scrollWidth, scrollHeight) animated:NO];
+        [_scrollView setContentOffset:CGPointMake(scrollWidth, 0) animated:NO];
     }
+}
+- (void)changeFocusImage
+{
+    NSInteger page = _pageControl.currentPage; // 获取当前的page
+    page++;
+    page = page > _images.count ? 0 : page;
+    [self turnPage:page];
+}
+- (void)turnPage:(NSInteger)page
+{
+    [_scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width * (page + 1), 0) animated:YES];
+}
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [self startTimer];
+}
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self startTimer];
+}
+- (void)pauseTimer
+{
+    NSLog(@"%s", __FUNCTION__);
+    if (scrollTimer)
+    {
+        [scrollTimer invalidate];
+        scrollTimer = nil;
+    }
+}
+- (void)startTimer
+{
+    NSLog(@"%s", __FUNCTION__);
+   [self pauseTimer];
+   scrollTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(changeFocusImage) userInfo:nil repeats:YES];
+}
+- (void)selectFocusImage:(UITapGestureRecognizer *)gesture
+{
+    UIScrollView *sc
 }
 @end
