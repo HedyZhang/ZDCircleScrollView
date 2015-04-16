@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 haidi. All rights reserved.
 //
 
-#import "CircleScrollView.h"
+#import "CarouselImageView.h"
 
-@interface CircleScrollView ()<UIGestureRecognizerDelegate>
+@interface CarouselImageView ()<UIGestureRecognizerDelegate>
 {
      NSTimer * scrollTimer;
     int scrollTopicFlag;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation CircleScrollView
+@implementation CarouselImageView
 - (instancetype)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -52,9 +52,12 @@
 //图片数组
 - (void)setImages:(NSArray *)images
 {
-    _images = images;
-    _pageControl.numberOfPages = _images.count;
-    [self initializeScrollViewImage];
+    if (_images != images)
+    {
+        _images = images;
+        _pageControl.numberOfPages = _images.count;
+        [self initializeScrollViewImage];
+    }
 }
 - (void)initializeScrollViewImage
 {
@@ -81,9 +84,10 @@
     [_scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width, 0) animated:YES];
     //   6-1-2-3-4-5-6-1
     
-    scrollTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(changeFocusImage) userInfo:nil repeats:YES];
+    scrollTimer = [NSTimer scheduledTimerWithTimeInterval:2.f target:self selector:@selector(changeFocusImage) userInfo:nil repeats:YES];
 
 }
+#pragma mark - scrollView 代理方法
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView;
 {
     CGFloat scrollWidth = _scrollView.frame.size.width;
@@ -100,6 +104,15 @@
         [_scrollView setContentOffset:CGPointMake(scrollWidth, 0) animated:NO];
     }
 }
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+    [self startTimer];
+}
+-(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [self startTimer];
+}
+#pragma mark -
 - (void)changeFocusImage
 {
     NSInteger page = _pageControl.currentPage; // 获取当前的page
@@ -111,17 +124,8 @@
 {
     [_scrollView setContentOffset:CGPointMake(_scrollView.frame.size.width * (page + 1), 0) animated:YES];
 }
--(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
-{
-    [self startTimer];
-}
--(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    [self startTimer];
-}
 - (void)pauseTimer
 {
-    NSLog(@"%s", __FUNCTION__);
     if (scrollTimer)
     {
         [scrollTimer invalidate];
@@ -130,12 +134,17 @@
 }
 - (void)startTimer
 {
-    NSLog(@"%s", __FUNCTION__);
-   [self pauseTimer];
-   scrollTimer = [NSTimer scheduledTimerWithTimeInterval:3.0f target:self selector:@selector(changeFocusImage) userInfo:nil repeats:YES];
+    [self pauseTimer];
+    scrollTimer = [NSTimer scheduledTimerWithTimeInterval:2.0f target:self selector:@selector(changeFocusImage) userInfo:nil repeats:YES];
 }
 - (void)selectFocusImage:(UITapGestureRecognizer *)gesture
 {
-    UIScrollView *sc
+    CGPoint point = [gesture locationInView:_scrollView];
+    int index = (int)(point.x / self.frame.size.width);
+    NSLog(@"点击了第%d张图片", index);
+    if (_delegate && [_delegate respondsToSelector:@selector(didSelectedImageAtIndex:)])
+    {
+        [_delegate didSelectedImageAtIndex:index];
+    }
 }
 @end

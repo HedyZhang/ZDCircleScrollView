@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CircleScrollView : UIView<UIScrollViewDelegate>
+@protocol CarouselImageViewDelegate <NSObject>
+
+- (void)didSelectedImageAtIndex:(NSInteger)index;
+
+@end
+
+
+@interface CarouselImageView : UIView<UIScrollViewDelegate>
+
+@property (nonatomic, assign) id<CarouselImageViewDelegate> delegate;
 @property (nonatomic, copy) NSArray *images;
 @property (nonatomic) BOOL isTimer;
 @property (nonatomic) BOOL isShowPageControl;
+
 @end

@@ -20,7 +20,7 @@
 		53147BF41A32FA2300F513B5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53147BF31A32FA2300F513B5 /* Images.xcassets */; };
 		53147BF71A32FA2300F513B5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 53147BF51A32FA2300F513B5 /* LaunchScreen.xib */; };
 		53147C031A32FA2300F513B5 /* ZDCircleScrollViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 53147C021A32FA2300F513B5 /* ZDCircleScrollViewTests.m */; };
-		53147C0E1A32FA6000F513B5 /* CircleScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53147C0D1A32FA6000F513B5 /* CircleScrollView.m */; };
+		53147C0E1A32FA6000F513B5 /* CarouselImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 53147C0D1A32FA6000F513B5 /* CarouselImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,8 +53,8 @@
 		53147BFC1A32FA2300F513B5 /* ZDCircleScrollViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZDCircleScrollViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		53147C011A32FA2300F513B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53147C021A32FA2300F513B5 /* ZDCircleScrollViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZDCircleScrollViewTests.m; sourceTree = "<group>"; };
-		53147C0C1A32FA6000F513B5 /* CircleScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleScrollView.h; sourceTree = "<group>"; };
-		53147C0D1A32FA6000F513B5 /* CircleScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleScrollView.m; sourceTree = "<group>"; };
+		53147C0C1A32FA6000F513B5 /* CarouselImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarouselImageView.h; sourceTree = "<group>"; };
+		53147C0D1A32FA6000F513B5 /* CarouselImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarouselImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +101,8 @@
 				53147BED1A32FA2300F513B5 /* ViewController.h */,
 				53147BEE1A32FA2300F513B5 /* ViewController.m */,
 				53147BF01A32FA2300F513B5 /* Main.storyboard */,
-				53147C0C1A32FA6000F513B5 /* CircleScrollView.h */,
-				53147C0D1A32FA6000F513B5 /* CircleScrollView.m */,
+				53147C0C1A32FA6000F513B5 /* CarouselImageView.h */,
+				53147C0D1A32FA6000F513B5 /* CarouselImageView.m */,
 				5309F9B11A3387A600A1DF86 /* 1.jpg */,
 				5309F9B21A3387A600A1DF86 /* 2.jpg */,
 				5309F9B31A3387A600A1DF86 /* 3.jpg */,
@@ -249,7 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				53147BEF1A32FA2300F513B5 /* ViewController.m in Sources */,
-				53147C0E1A32FA6000F513B5 /* CircleScrollView.m in Sources */,
+				53147C0E1A32FA6000F513B5 /* CarouselImageView.m in Sources */,
 				53147BEC1A32FA2300F513B5 /* AppDelegate.m in Sources */,
 				53147BE91A32FA2300F513B5 /* main.m in Sources */,
 			);
